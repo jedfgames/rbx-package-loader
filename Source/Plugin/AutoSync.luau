@@ -136,9 +136,11 @@ function AutoSync.start(config: {
             return
         end
 
+        local state = _state :: AutoSyncState
+
         for _, info in markers do
             if info.AutoPush then
-                _state.PushEnabled[info.Id] = true
+                state.PushEnabled[info.Id] = true
             end
         end
     end)
