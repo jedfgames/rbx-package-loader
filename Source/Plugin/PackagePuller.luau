@@ -313,9 +313,7 @@ function _applyOperation(loader: any, op: any, root: Instance)
             if op.Kind == "Remove" then
                 target:SetAttribute(key, nil)
             else
-                local decoded = loader.PropertyReflection._decodeValue
-                        and loader.PropertyReflection._decodeValue(op.NewValue)
-                    or op.NewValue
+                local decoded = loader.PropertyReflection.decodeValue(op.NewValue)
                 target:SetAttribute(key, decoded)
             end
         end

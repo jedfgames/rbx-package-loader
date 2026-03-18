@@ -146,10 +146,12 @@ local function _destroyInvalidMarker(marker: StringValue, reason: string)
     end
 
     local state = _state :: AutoSyncState
-    local path = pcall(function()
+    local ok, path = pcall(function()
         return marker:GetFullName()
     end)
-    state.Logger.warn(`[AutoSync] Destroyed invalid ".rbx-package" marker ({reason}). Was at "{path or "unknown"}".`)
+    state.Logger.warn(
+        `[AutoSync] Destroyed invalid ".rbx-package" marker ({reason}). Was at "{if ok then path else "unknown"}".`
+    )
 
     -- Suppress push events from the destruction
     pcall(function()

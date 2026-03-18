@@ -23,7 +23,7 @@ local UNIVERSE_ID = "9873131552"
 local PLACE_ID = "94206881554615"
 
 local function uploadE2EPlace()
-    Dotenv.load()
+    pcall(Dotenv.load)
     local apiKey = process.env.ROBLOX_E2E_API_KEY
     assert(apiKey ~= nil and apiKey ~= "", "ROBLOX_E2E_API_KEY not found in .env")
 

@@ -3,8 +3,7 @@
 PromptInput
 
 A text input prompt with a submit button. Submits on Enter key or
-button click. Calls the OnSubmit callback with the text value, or
-OnCancel if the widget is closed without submitting.
+button click. Calls the OnSubmit callback with the text value.
 
 --]]
 
