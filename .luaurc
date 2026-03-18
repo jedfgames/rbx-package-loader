@@ -9,7 +9,6 @@
     "globals": [
         "__REGISTRY_TOKEN__",
         "afterAll",
-        "warn",
         "afterEach",
         "beforeAll",
         "beforeEach",
