@@ -100,8 +100,9 @@ local function _promptForInput(title: string, defaultValue: string?, placeholder
     local result: string? = nil
     _promptDone = false
 
-    _promptScope = Fusion:scoped()
-    local ui = PromptInput(_promptScope, {
+    local scope = Fusion:scoped()
+    _promptScope = scope
+    local ui = PromptInput(scope, {
         DefaultValue = defaultValue,
         PlaceholderText = placeholderText or "Enter value...",
         OnSubmit = function(text: string)
@@ -320,8 +321,9 @@ toolbar:CreateButton({
 
     widget.Title = "Set Key"
 
-    _setKeyScope = Fusion:scoped()
-    local ui = SetKeyPrompt(_setKeyScope, {
+    local scope = Fusion:scoped()
+    _setKeyScope = scope
+    local ui = SetKeyPrompt(scope, {
         CurrentKey = CredentialStore.getKey(),
         OnSave = function(key: string)
             CredentialStore.setKey(key)
